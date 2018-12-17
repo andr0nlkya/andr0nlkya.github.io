@@ -1,0 +1,58 @@
+<html> 
+<head>	
+<title>Слайд-шоу</title>
+
+<script type="text/javascript">
+all_images = new Array ("blogulfa.jpg","israel.jpg","israel1.jpg","israel2.jpg");
+all_text = new Array ("wolsam.org","http://usefulscript.ru/slide_show_jquery.php","map.html","support.html");
+var ImgNum = 0;
+var ImgLength = all_images.length - 1;
+var delay = 2000;
+var lock = false;
+var run;
+
+function chgImg(direction) {
+if (document.images) {
+  ImgNum = ImgNum + direction;
+  if (ImgNum > ImgLength) { ImgNum = 0; }
+  if (ImgNum < 0) { ImgNum = ImgLength; }
+  document.getElementById("image_link").href =all_text[ImgNum];
+  document.slide_show.src = all_images[ImgNum];
+}
+}
+
+function auto() {
+if (lock == true) {
+  lock = false;
+  window.clearInterval(run);
+}
+else if (lock == false) {
+  lock = true;
+  run = setInterval("chgImg(1)", delay);
+}
+}
+auto();
+</script>
+
+
+<div align="center">
+<table border="0">
+  <tr align="center">
+   <td colspan="3"><a href="" id="image_link"><img src="blogulfa.jpg" name="slide_show"></a></td>
+  </tr>
+  <tr align="center">
+   <td align="right"><a href="javascript:chgImg(-1)" onmouseover="document.pm1.src='buton/bagplay2.bmp'"
+onmouseout="document.pm1.src='buton/bagplay1.bmp'">
+<img src="buton/bagplay1.bmp" name="pm1" alt="" border="0" TITLE="Назад"></a></td>
+   <td align="center"><a href="javascript:auto()" onmouseover="document.pm2.src='buton/playpause2.bmp'"
+onmouseout="document.pm2.src='buton/playpause1.bmp'">
+<img src="buton/playpause1.bmp" name="pm2" alt="" border="0" TITLE="старт/пауза"></a></td>
+   <td align="left"><a href="javascript:chgImg(1)" onmouseover="document.pm3.src='buton/play2.bmp'"
+onmouseout="document.pm3.src='buton/play1.bmp'">
+<img src="buton/play1.bmp" name="pm3" alt="" border="0" TITLE="Вперед"></a></td>
+  </tr>
+</table>
+</div>
+
+</body> 
+</html>

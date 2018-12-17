@@ -1,0 +1,78 @@
+<html> 
+<head>	
+<title>Слайд-шоу</title>
+<meta http-equiv="content-language" content="ru">
+
+<script type="text/javascript"
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+
+
+<img src="Электромонтаж.jpg" alt="" 
+id="slide_show"></map><br>
+<span id="slide_text"><a href="../uslugi.html" " 
+onmouseover="document.butrid.src='buton/butread2.jpg'"
+onmouseout="document.butrid.src='buton/butread1.jpg'">
+<img src="buton/butread1.jpg" name="butrid" alt="" border="0" TITLE="читать"></a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<span style="color:blue; cursor:pointer;" onclick="clearInterval(play)"onmouseover="document.pm5.src='buton/stop2.bmp'"
+onmouseout="document.pm5.src='buton/stop1.bmp'">
+<img src="buton/stop1.bmp" name="pm5" alt="" border="0" TITLE="Стоп"></span>
+<span style="color:blue; cursor:pointer;" onclick="play=setInterval('chgImg(0)', 10000);" onmouseover="document.pm6.src='buton/play2.bmp'"
+onmouseout="document.pm6.src='buton/play1.bmp'">
+<img src="buton/play1.bmp" name="pm6" alt="" border="0" TITLE="Продолжить"></span>&nbsp;&nbsp;&nbsp;
+ 
+<span style="color:blue; cursor:pointer;" onclick="chgImg(1)" align="center" onmouseover="document.pm1.src='buton/but12.bmp'"
+onmouseout="document.pm1.src='buton/but11.bmp'">
+<img src="buton/but11.bmp" name="pm1" alt="" border="0" TITLE="первый"></span>&nbsp;
+
+<span style="color:blue; cursor:pointer;" onclick="chgImg(2)" align="center" onmouseover="document.pm2.src='buton/but22.bmp'"
+onmouseout="document.pm2.src='buton/but21.bmp'">
+<img src="buton/but21.bmp" name="pm2" alt="" border="0" TITLE="второй"></span>&nbsp;
+
+
+<span style="color:blue; cursor:pointer;" onclick="chgImg(3)"onmouseover="document.pm3.src='buton/but32.bmp'"
+onmouseout="document.pm3.src='buton/but31.bmp'">
+<img src="buton/but31.bmp" name="pm3" alt="" border="0" TITLE="третий"></span>&nbsp;
+
+
+<span style="color:blue; cursor:pointer;" onclick="chgImg(4)"onmouseover="document.pm4.src='buton/but42.bmp'"
+onmouseout="document.pm4.src='buton/but41.bmp'">
+<img src="buton/but41.bmp" name="pm4" alt="" border="0" TITLE="четвертый"></span>
+
+
+
+
+<script type="text/javascript">
+var imgs = ["Электромонтаж.jpg","Советы.jpg","Узо.jpg","Реле напряжения.jpg"];
+var but = ['<a href="../uslugi.html" target="_blank"><img src="buton/butread1.jpg"></a>',//1слайд
+
+         '<a href="http://sv777.ru/index.php/rekomendacii/elektromontazhnye-raboty-rekomendaczii.html#10"><img src="buton/butread2.jpg"></a>',//2слайд
+
+          '<a href="http://electricvdome.ru/uzo/chem-otlichaetsya-uzo-ot-difavtomata.html" ><img src="buton/butread1.jpg"></a>',//3слайд
+
+          '<a href="http://sovet-ingenera.com/elektrika/rele/rele-kontrolya-napryazheniya.html"><img src="buton/butread1.jpg"></a>'];//4слайд
+var n=0;
+time=800;
+play=setInterval("chgImg(0)", 15000);
+
+
+function chgImg(number) {
+if (number!=0) n=number-2;
+ $('#slide_show').fadeOut(time, function() {    //для картинок
+  $(this).attr('src', imgs[n]).fadeIn(time);
+ });
+
+ $('#slide_text').fadeOut(time, function() {    //для кнопок
+  $(this).html(but[n]).fadeIn(time);
+ });
+
+n++;
+if (n>=imgs.length) n=0;
+}
+</script>
+
+</body> 
+</html>

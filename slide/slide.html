@@ -1,0 +1,58 @@
+<html> 
+<head>	
+<title>Слайд-шоу</title>	
+
+<script language = "JavaScript">	
+
+numimg=0	
+imgslide=new Array ()	
+imgslide[0]=new Image ()	
+imgslide[1]=new Image ()	
+imgslide[2]=new Image ()	
+imgslide[3]=new Image ()	
+	
+
+imgslide[0].src ="blogulfa.jpg" 
+imgslide[1].src ="israel.jpg"	
+imgslide[2].src ="israel1.jpg"	
+imgslide[3].src ="israel2.jpg"	
+	
+
+function dem(n)	
+
+{	
+if (n==1)	
+{ numimg++	
+if (numimg==4)	
+numimg=0;	
+}	
+else	
+{numimg--	
+if (numimg== -1)	
+numimg=3;	
+}	
+document.images [0].src=imgslide [numimg].src	
+}	
+
+</script>	
+</head>	
+
+<body>	
+
+<h1> </h1>	
+
+	
+
+<img src="blogulfa.jpg" width="567" height="217" width="567" height="217" border="0" alt="" usemap="#blogulfa_Map">
+<map name="blogulfa_Map">
+<area shape="rect" alt="Блог Ульфа Экмана" coords="12,176,94,209" href="http://blog.ulfekman.org/ru/" target="_blank">
+</map>	
+
+<form name=form1>	
+<input type=button value=Назад onClick="dem(0)">	
+<input type=button value=Вперед onClick="dem(1)">	
+</form>	
+
+
+</body> 
+</html> 
